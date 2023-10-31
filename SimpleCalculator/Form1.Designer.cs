@@ -50,7 +50,7 @@
             btnC = new Button();
             btnEraseOne = new Button();
             btnDivision = new Button();
-            textBox1 = new TextBox();
+            txtResult = new TextBox();
             SuspendLayout();
             // 
             // btnOne
@@ -62,6 +62,7 @@
             btnOne.TabIndex = 0;
             btnOne.Text = "1";
             btnOne.UseVisualStyleBackColor = true;
+            btnOne.Click += btnNumbers_Click;
             // 
             // btnZero
             // 
@@ -72,6 +73,7 @@
             btnZero.TabIndex = 1;
             btnZero.Text = "0";
             btnZero.UseVisualStyleBackColor = true;
+            btnZero.Click += btnNumbers_Click;
             // 
             // btnComma
             // 
@@ -112,6 +114,7 @@
             btnTwo.TabIndex = 5;
             btnTwo.Text = "2";
             btnTwo.UseVisualStyleBackColor = true;
+            btnTwo.Click += btnNumbers_Click;
             // 
             // btnThree
             // 
@@ -122,6 +125,7 @@
             btnThree.TabIndex = 6;
             btnThree.Text = "3";
             btnThree.UseVisualStyleBackColor = true;
+            btnThree.Click += btnNumbers_Click;
             // 
             // btnPlus
             // 
@@ -132,6 +136,7 @@
             btnPlus.TabIndex = 7;
             btnPlus.Text = "+";
             btnPlus.UseVisualStyleBackColor = true;
+            btnPlus.Click += btnPlus_Click;
             // 
             // btnFour
             // 
@@ -142,6 +147,7 @@
             btnFour.TabIndex = 8;
             btnFour.Text = "4";
             btnFour.UseVisualStyleBackColor = true;
+            btnFour.Click += btnNumbers_Click;
             // 
             // btnFive
             // 
@@ -152,6 +158,7 @@
             btnFive.TabIndex = 9;
             btnFive.Text = "5";
             btnFive.UseVisualStyleBackColor = true;
+            btnFive.Click += btnNumbers_Click;
             // 
             // btnSix
             // 
@@ -162,6 +169,7 @@
             btnSix.TabIndex = 10;
             btnSix.Text = "6";
             btnSix.UseVisualStyleBackColor = true;
+            btnSix.Click += btnNumbers_Click;
             // 
             // btnMinus
             // 
@@ -182,6 +190,7 @@
             btnSeven.TabIndex = 12;
             btnSeven.Text = "7";
             btnSeven.UseVisualStyleBackColor = true;
+            btnSeven.Click += btnNumbers_Click;
             // 
             // btnEight
             // 
@@ -192,6 +201,7 @@
             btnEight.TabIndex = 13;
             btnEight.Text = "8";
             btnEight.UseVisualStyleBackColor = true;
+            btnEight.Click += btnNumbers_Click;
             // 
             // btnNine
             // 
@@ -202,6 +212,7 @@
             btnNine.TabIndex = 14;
             btnNine.Text = "9";
             btnNine.UseVisualStyleBackColor = true;
+            btnNine.Click += btnNumbers_Click;
             // 
             // btnMultiply
             // 
@@ -263,14 +274,13 @@
             btnDivision.Text = "/";
             btnDivision.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtResult
             // 
-            textBox1.Location = new Point(48, 51);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(278, 95);
-            textBox1.TabIndex = 21;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtResult.Location = new Point(48, 51);
+            txtResult.Multiline = true;
+            txtResult.Name = "txtResult";
+            txtResult.Size = new Size(278, 95);
+            txtResult.TabIndex = 21;
             // 
             // Form1
             // 
@@ -278,7 +288,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Thistle;
             ClientSize = new Size(376, 556);
-            Controls.Add(textBox1);
+            Controls.Add(txtResult);
             Controls.Add(btnDivision);
             Controls.Add(btnEraseOne);
             Controls.Add(btnC);
@@ -305,6 +315,7 @@
             MinimizeBox = false;
             Name = "Form1";
             Text = "Calculator";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -332,6 +343,6 @@
         private Button btnC;
         private Button btnEraseOne;
         private Button btnDivision;
-        private TextBox textBox1;
+        private TextBox txtResult;
     }
 }
