@@ -2,6 +2,9 @@ namespace SimpleCalculator
 {
     public partial class Form1 : Form
     {
+        decimal firstNumber = 0;
+        string currentOperator = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -15,26 +18,63 @@ namespace SimpleCalculator
         public void btnNumbers_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
+            txtResult.Text += button.Text;
+        }
 
-            switch (button.Text)
+        private void btnOperator_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+
+            if (!string.IsNullOrEmpty(txtResult.Text))
             {
-                case "0": txtResult.Text += "0"; break;
-                case "1": txtResult.Text += "1"; break;
-                case "2": txtResult.Text += "2"; break;
-                case "3": txtResult.Text += "3"; break;
-                case "4": txtResult.Text += "4"; break;
-                case "5": txtResult.Text += "5"; break;
-                case "6": txtResult.Text += "6"; break;
-                case "7": txtResult.Text += "7"; break;
-                case "8": txtResult.Text += "8"; break;
-                case "9": txtResult.Text += "9"; break;
-                default: txtResult.Text = ""; break;
+                firstNumber = Convert.ToDecimal(txtResult.Text);
+                currentOperator = button.Text;
+                txtResult.Text = "";
             }
         }
 
-        private void btnPlus_Click(object sender, EventArgs e)
+        private void btnEquals_Click(object sender, EventArgs e)
         {
-            txtResult.Text+= "+";
+            decimal secondNumber = 0;
+            if (!string.IsNullOrEmpty(txtResult.Text))
+                secondNumber = Convert.ToDecimal(txtResult.Text);
+
+            switch (currentOperator)
+            {
+                case "+":
+                    txtResult.Text = (firstNumber + secondNumber).ToString();
+                    break;
+                case "-":
+                    txtResult.Text = (firstNumber - secondNumber).ToString();
+                    break;
+                case "X":
+                    txtResult.Text = (firstNumber * secondNumber).ToString();
+                    break;
+                case "/":
+                    txtResult.Text = (firstNumber / secondNumber).ToString();
+                    break;
+            }
+        }
+
+        private void btnEraseOne_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtResult.Text))
+                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            txtResult.Text = "";
+        }
+
+        private void btnComma_Click(object sender, EventArgs e)
+        {
+            txtResult.Text += ",";
+        }
+        private void btnWarning_Click(object sender, EventArgs e)
+        {
+           frmWarning frm = new frmWarning();
+           frm.Show();
         }
     }
 }
