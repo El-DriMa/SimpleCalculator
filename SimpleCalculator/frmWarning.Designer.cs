@@ -52,6 +52,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmWarning";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "NONONONONOOOOOOOOOOOOOOO";
             ResumeLayout(false);
             PerformLayout();

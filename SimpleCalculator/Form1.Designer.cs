@@ -327,6 +327,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator";
             Load += Form1_Load;
             ResumeLayout(false);

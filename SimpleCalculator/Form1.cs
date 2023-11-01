@@ -51,7 +51,13 @@ namespace SimpleCalculator
                     txtResult.Text = (firstNumber * secondNumber).ToString();
                     break;
                 case "/":
+                    if(secondNumber != 0)
                     txtResult.Text = (firstNumber / secondNumber).ToString();
+                    else
+                    {
+                        MessageBox.Show("You can't divide by zero!","DontBeDumb:)");
+                        txtResult.Text = "";
+                    }
                     break;
             }
         }
@@ -73,8 +79,8 @@ namespace SimpleCalculator
         }
         private void btnWarning_Click(object sender, EventArgs e)
         {
-           frmWarning frm = new frmWarning();
-           frm.Show();
+            frmWarning frm = new frmWarning();
+            frm.Show();
         }
     }
 }
